@@ -13,11 +13,11 @@ function Item({ to, label, Icon, collapsed, onNavigate }) {
       end
       onClick={onNavigate}
       className={({ isActive }) =>
-        `group flex items-center gap-3 rounded-xl px-3 py-2 text-sm transition
+        `group flex items-center gap-3 rounded-2xl px-3 py-3 text-sm font-medium transition
         ${
           isActive
-            ? "bg-neutral-900 text-white dark:bg-neutral-700"
-            : "text-neutral-700 hover:bg-neutral-100 dark:text-neutral-300 dark:hover:bg-neutral-800"
+            ? "bg-white text-[#27616d] shadow-[0_10px_20px_rgba(255,255,255,0.12)]"
+            : "text-white/80 hover:bg-white/10 hover:text-white"
         }`
       }
       title={collapsed ? label : undefined}
@@ -31,17 +31,15 @@ function Item({ to, label, Icon, collapsed, onNavigate }) {
 function Brand({ collapsed }) {
   return (
     <div className="flex items-center gap-3">
-      {/* Single logo asset; invert in dark for contrast */}
-      {/* <img
-        src="/public/assets/images/Applogo.png"
-        alt="Crave"
-        className="h-8 w-8 object-contain rounded dark:invert select-none"
-        draggable="false"
-      /> */}
+      <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-white/14 text-lg font-semibold text-white shadow-inner shadow-white/10">
+        F
+      </div>
       {!collapsed && (
         <div className="leading-tight">
-          <div className="font-semibold px-3">Crave</div>
-          {/* <div className="text-[11px] text-neutral-500 dark:text-neutral-400">v0.1</div> */}
+          <div className="px-1 text-xl font-semibold tracking-tight text-white">
+            Flexio
+          </div>
+          <div className="px-1 text-xs text-white/60">Studio admin</div>
         </div>
       )}
     </div>
@@ -67,12 +65,12 @@ const handleLogout = async () => {
   return (
     <div className="h-full flex flex-col">
       {/* Brand */}
-      <div className="h-16 border-b border-neutral-200 dark:border-neutral-800 flex items-center gap-3 px-3">
+      <div className="flex h-20 items-center gap-3 border-b border-white/10 px-4">
         <Brand collapsed={collapsed} />
         {/* Collapse button (desktop) */}
         <button
           onClick={onToggle}
-          className="ml-auto hidden md:inline-flex items-center justify-center text-xs px-2 py-1 rounded-lg border hover:bg-neutral-50 dark:border-neutral-700 dark:hover:bg-neutral-800"
+          className="ml-auto hidden md:inline-flex items-center justify-center rounded-xl border border-white/15 px-2 py-1 text-xs text-white/80 hover:bg-white/10"
           title={collapsed ? "Expand" : "Collapse"}
         >
           {collapsed ? <ChevronRight className="w-4 h-4" /> : <ChevronLeft className="w-4 h-4" />}
@@ -80,7 +78,7 @@ const handleLogout = async () => {
       </div>
 
       {/* Nav */}
-      <nav className="p-3 space-y-1">
+      <nav className="space-y-1 p-4">
         {NAV_ITEMS.map(({ to, label, icon }) => {
           const Icon = Icons[icon] ?? Icons.Circle;
           return (
@@ -97,11 +95,11 @@ const handleLogout = async () => {
       </nav>
 
       {/* Footer */}
-      <div className="mt-auto p-3">
+      <div className="mt-auto p-4">
         {collapsed ? (
           <button
             onClick={handleLogout}
-            className="w-full inline-flex items-center justify-center rounded-xl border px-2.5 py-1.5 text-xs bg-white hover:bg-neutral-50 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:border-neutral-700"
+            className="inline-flex w-full items-center justify-center rounded-2xl border border-white/15 px-2.5 py-2 text-xs text-white hover:bg-white/10"
             title="Logout"
           >
             <LogOut className="w-4 h-4" />
@@ -110,7 +108,7 @@ const handleLogout = async () => {
           <div className="flex items-center gap-2">
             <button
               onClick={handleLogout}
-              className="ml-auto inline-flex items-center gap-2 rounded-xl border px-3 py-2 text-sm bg-white hover:bg-neutral-50 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:border-neutral-700"
+              className="ml-auto inline-flex items-center gap-2 rounded-2xl border border-white/15 px-4 py-2.5 text-sm font-medium text-white hover:bg-white/10"
             >
               <LogOut className="w-4 h-4" />
               Logout

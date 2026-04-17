@@ -60,7 +60,7 @@ export default function AdminLayout() {
 
   return (
     <div
-      className="min-h-screen bg-neutral-100 text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100"
+      className="min-h-screen bg-[#f4f7f8] text-neutral-900"
       style={{ fontFamily: '"Poppins", ui-sans-serif, system-ui' }}
     >
       <div className="md:flex md:min-h-screen">
@@ -77,7 +77,7 @@ export default function AdminLayout() {
         <aside
           className={[
             // Base
-            "z-50 bg-white dark:bg-neutral-900 border-r border-neutral-200 dark:border-neutral-800",
+            "z-50 border-r border-white/10 bg-[linear-gradient(180deg,#2f707d_0%,#3e8390_100%)]",
             // Mobile overlay panel
             "fixed inset-y-0 left-0 w-72 transform transition-transform duration-200 md:transform-none md:static md:w-auto",
             mobileOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0",

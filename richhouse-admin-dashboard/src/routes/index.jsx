@@ -15,7 +15,8 @@ import Commerence from "../modules/commerce/CommerceList";
 import Booking from  "../modules/bookings/BookingsList.jsx"
 
 const router = createBrowserRouter([
-//   { path: "/login", element: <Login /> },
+  { path: "/", element: <Navigate to="/admin" replace /> },
+  { path: "/login", element: <Login /> },
 
   {
     path: "/admin",
@@ -30,28 +31,28 @@ const router = createBrowserRouter([
         element: <UsersList />,
       },
       {
-        path: "Analytics",
+        path: "analytics",
         element: <AnalyticsList />,
       },
       {
-        path: "Content",
+        path: "content",
         element: <ContentList />,
       },
      {
-        path: "Commerence",
+        path: "commerce",
         element: <Commerence />,
       },
       {
-        path: "Booking",
+        path: "bookings",
         element: <Booking />,
       },
       {
-        path: "Settings",
+        path: "settings",
         element: <Settings />,
       },
     ],
   },
-  { path: "*", element: <Dashboard /> },
+  { path: "*", element: <Navigate to="/admin" replace /> },
 ]);
 
 export default router;
